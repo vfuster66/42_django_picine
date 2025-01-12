@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Ex01: Moteur de template{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'style2.css' %}">
+{% endblock %}
+{% block content %}
+<div class="content">
+    <h1>Le moteur de template Django</h1>
+    <p>
+        Le moteur de template de Django permet de séparer la logique métier et l'affichage. Voici quelques-unes de ses fonctionnalités principales :
+    </p>
+
+    <h2>Blocs</h2>
+    <p>
+        Les blocs sont définis dans le template parent avec la syntaxe 
+        <code>{% verbatim %}{% block nom_du_bloc %}{% endblock %}{% endverbatim %}</code>. 
+        Les templates enfants peuvent remplacer ou compléter ces blocs.
+    </p>
+    <pre>
+<code>
+{% verbatim %}
+{% block content %}
+    <h1>Contenu spécifique à une page</h1>
+{% endblock %}
+{% endverbatim %}
+</code>
+    </pre>
+
+    <h2>Boucles <code>for</code></h2>
+    <p>
+        Permet d'itérer sur des listes ou des objets passés dans le contexte :
+    </p>
+    <pre>
+<code>
+{% verbatim %}
+{% for item in items %}
+    <li>{{ item }}</li>
+{% endfor %}
+{% endverbatim %}
+</code>
+    </pre>
+
+    <h2>Structures de contrôle <code>if</code></h2>
+    <p>
+        Les conditions permettent de modifier le rendu selon le contexte :
+    </p>
+    <pre>
+<code>
+{% verbatim %}
+{% if user.is_authenticated %}
+    <p>Bonjour {{ user.username }} !</p>
+{% else %}
+    <p>Bienvenue, visiteur anonyme !</p>
+{% endif %}
+{% endverbatim %}
+</code>
+    </pre>
+
+    <h2>Affichage des variables</h2>
+    <p>
+        Les variables passées par le contexte peuvent être affichées avec la syntaxe 
+        <code>{{ variable }}</code>.
+    </p>
+    <pre>
+<code>
+{% verbatim %}
+<p>Le titre est : {{ title }}</p>
+{% endverbatim %}
+</code>
+    </pre>
+
+    <p>
+        Django s'assure que les données affichées sont sécurisées, notamment en échappant les caractères HTML.
+    </p>
+</div>
+{% endblock %}

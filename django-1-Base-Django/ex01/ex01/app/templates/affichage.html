@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Ex01: Processus d'affichage d'une page statique{% endblock %}
+{% block style %}
+{% endblock %}
+{% block content %}
+<h1>Processus d'affichage d'une page statique</h1>
+<p>
+ Le processus pour afficher une page statique avec Django suit les étapes suivantes :
+</p>
+<ol>
+ <li>
+ <strong>Requête HTTP</strong>: L'utilisateur envoie une requête HTTP en accédant à une URL spécifique.
+ </li>
+ <li>
+ <strong>URLconf</strong>: Django correspond l'URL demandée avec une vue définie dans le fichier <code>urls.py</code>.
+ </li>
+ <li>
+ <strong>Vue</strong>: La vue correspondante est appelée. Elle peut être une fonction ou une classe.
+ </li>
+ <li>
+ <strong>Rendu du template</strong>: La vue utilise un template (HTML) pour générer la réponse HTTP.
+ </li>
+ <li>
+ <strong>Réponse HTTP</strong>: Django renvoie une réponse HTTP contenant le contenu généré.
+ </li>
+</ol>
+<p>
+ Ce processus permet à Django de séparer les responsabilités (logique, présentation, routage) pour faciliter le développement.
+</p>
+{% endblock %}

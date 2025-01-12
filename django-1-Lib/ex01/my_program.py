@@ -1,7 +1,7 @@
 import sys
+from path import Path
 sys.path.append('local_lib')
 
-from path import Path
 
 def main():
     # Créer un dossier
@@ -10,11 +10,12 @@ def main():
 
     # Créer un fichier dans ce dossier
     file = folder / "test_file.txt"
-    file.write_text("Hello, this is a test file!")  # Écrire du texte dans le fichier
+    file.write_text("Hello, this is a test file!")
 
     # Lire et afficher le contenu du fichier
     content = file.read_text()  # Lire le contenu du fichier
     print(content)
+
 
 if __name__ == "__main__":
     main()

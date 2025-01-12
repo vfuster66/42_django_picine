@@ -1,0 +1,20 @@
+body {
+    color: red;
+}
+
+nav ul {
+    background-color: #fff0f0;
+}
+
+nav ul li a {
+    color: red;
+}
+
+nav ul li a:hover {
+    background-color: red;
+    color: white;
+}
+
+.hamburger span {
+    background-color: red;
+}
