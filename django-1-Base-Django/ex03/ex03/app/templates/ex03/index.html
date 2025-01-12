@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex03: Fifty Shades of Bic</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            width: 80px;
+            height: 40px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Black</th>
+                <th>Red</th>
+                <th>Green</th>
+                <th>Blue</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for black, red, green, blue in colors %}
+            <tr>
+                <td style="background-color: {{ black }}"></td>
+                <td style="background-color: {{ red }}"></td>
+                <td style="background-color: {{ green }}"></td>
+                <td style="background-color: {{ blue }}"></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ex02: Premier formulaire</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <h1>Premier formulaire</h1>
+    
+    <div class="form-container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="history">
+        <h2>Historique</h2>
+        {% if history %}
+            {% for entry in history %}
+                <div class="history-item">{{ entry }}</div>
+            {% endfor %}
+        {% else %}
+            <p>Aucun historique pour le moment</p>
+        {% endif %}
+    </div>
+</body>
+</html>

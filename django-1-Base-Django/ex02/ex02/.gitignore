@@ -1,0 +1,5 @@
+django_env/
+*.pyc
+__pycache__/
+db.sqlite3
+logs.txt
