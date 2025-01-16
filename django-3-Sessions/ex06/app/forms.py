@@ -30,7 +30,8 @@ class TipForm(forms.ModelForm):
 class RegistrationForm(forms.ModelForm):
     """
     Formulaire d'inscription pour les nouveaux utilisateurs.
-    Comprend uniquement un nom d'utilisateur et la validation des mots de passe.
+    Comprend uniquement un nom d'utilisateur et la validation des mots de
+    passe.
     """
     password = forms.CharField(
         widget=forms.PasswordInput(
@@ -56,7 +57,12 @@ class RegistrationForm(forms.ModelForm):
         fields = ['username']  # Supprimer 'email' de la liste des champs
 
         widgets = {
-            'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Nom d'utilisateur"}),
+            'username': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': "Nom d'utilisateur"
+                }
+            ),
         }
 
     def clean(self):
@@ -71,7 +77,6 @@ class RegistrationForm(forms.ModelForm):
             raise ValidationError("Les mots de passe ne correspondent pas.")
 
         return cleaned_data
-
 
 
 class LoginForm(AuthenticationForm):

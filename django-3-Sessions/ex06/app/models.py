@@ -4,7 +4,8 @@ from django.db import models
 
 class CustomUser(AbstractUser):
     """
-    Modèle utilisateur personnalisé avec un système de réputation basé sur les votes des Tips.
+    Modèle utilisateur personnalisé avec un système de réputation basé sur 
+    les votes des Tips.
     """
     reputation = models.IntegerField(default=0)
 
@@ -38,10 +39,13 @@ class CustomUser(AbstractUser):
 
     def update_reputation(self):
         """
-        Met à jour la réputation de l'utilisateur en fonction des votes reçus par ses Tips.
+        Met à jour la réputation de l'utilisateur en fonction des votes
+        reçus par ses Tips.
         """
         upvotes = sum(tip.total_upvotes() for tip in self.tips_posted.all())
-        downvotes = sum(tip.total_downvotes() for tip in self.tips_posted.all())
+        downvotes = sum(
+            tip.total_downvotes() for tip in self.tips_posted.all()
+        )
         self.reputation = (upvotes * 5) - (downvotes * 2)
         self.save()
 
@@ -77,7 +81,10 @@ class Tip(models.Model):
         """
         Représentation textuelle de l'objet Tip.
         """
-        return f"Tip de {self.auteur.username} - {self.date.strftime('%Y-%m-%d %H:%M:%S')}"
+        return (
+            f"Tip de {self.auteur.username} - "
+            f"{self.date.strftime('%Y-%m-%d %H:%M:%S')}"
+        )
 
     def total_upvotes(self):
         """
@@ -96,7 +103,7 @@ class Tip(models.Model):
         Vérifie si un utilisateur a déjà voté (upvote ou downvote) pour ce Tip.
         """
         return (
-            self.upvotes.filter(pk=user.pk).exists() or 
+            self.upvotes.filter(pk=user.pk).exists() or
             self.downvotes.filter(pk=user.pk).exists()
         )
 
