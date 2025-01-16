@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Nos Tips{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <h3>Ajouter une astuce</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Publier</button>
+    </form>
+{% else %}
+    <p>Connectez-vous pour partager vos astuces !</p>
+{% endif %}
+
+<h2>Les astuces</h2>
+<ul>
+    {% for tip in tips %}
+        <li>
+            <p><strong>{{ tip.auteur.username }}</strong> - {{ tip.date|date:"d/m/Y H:i" }}</p>
+            <p>{{ tip.contenu }}</p>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

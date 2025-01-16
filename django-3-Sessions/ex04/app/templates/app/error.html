@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erreur</title>
+    <link rel="stylesheet" href="{% static 'css/error.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="error-icon">⚠️</div>
+        <h1>Oops !</h1>
+        <p>Une erreur est survenue. Nous travaillons pour résoudre le problème.</p>
+        <a href="{% url 'home' %}">Retour à l'accueil</a>
+    </div>
+</body>
+</html>

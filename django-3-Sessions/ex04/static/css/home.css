@@ -1,0 +1,118 @@
+/* Styles pour la page d'accueil */
+h2 {
+    font-size: 2em;
+    margin-bottom: 1em;
+    text-align: center;
+    color: #8D1C31;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #fdf5e6;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1em;
+    margin: 1em 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+ul li strong {
+    font-size: 1.1em;
+    color: #34495E;
+}
+
+ul li p {
+    margin: 0.5em 0;
+    line-height: 1.4;
+}
+
+/* Styles pour les actions sur les astuces */
+.tip-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+
+.tip-actions p {
+    margin: 0;
+    font-size: 1.1em;
+    color: #34495E;
+}
+
+.tip-actions form {
+    display: inline;
+    margin: 0 0.5em;
+}
+
+.tip-actions button {
+    background-color: #8D1C31;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+.tip-actions button:hover {
+    background-color: #6f1425;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Bouton Publier */
+form button {
+    display: block;
+    margin-left: auto;
+    background-color: #8D1C31;
+    color: #fff;
+    border: none;
+    padding: 0.8em 1.5em;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+form button:hover {
+    background-color: #6f1425;
+    transform: translateY(-2px);
+}
+
+/* Labels et textarea */
+form label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-size: 1.2em;
+    color: #34495E;
+    font-weight: bold;
+}
+
+form textarea {
+    width: 100%;
+    padding: 0.8em;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    resize: vertical;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form textarea:focus {
+    border-color: #8D1C31;
+    box-shadow: 0 0 8px rgba(141, 28, 49, 0.4);
+    outline: none;
+}

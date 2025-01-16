@@ -1,0 +1,119 @@
+/* Styles pour la page d'accueil */
+h2 {
+    font-size: 2em;
+    margin-bottom: 1em;
+    text-align: center;
+    color: #8D1C31;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #fdf5e6;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1em;
+    margin: 1em 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+ul li strong {
+    font-size: 1.1em;
+    color: #34495E;
+}
+
+ul li p {
+    margin: 0.5em 0;
+    line-height: 1.4;
+}
+
+/* Styles pour le titre du formulaire */
+form h3 {
+    font-size: 1.8em;
+    margin-bottom: 1em;
+    text-align: left; /* Aligné à gauche pour un style professionnel */
+    color: #34495E; /* Couleur harmonieuse */
+    font-weight: bold;
+}
+
+/* Styles pour le formulaire */
+form {
+    margin-top: 2em;
+    padding: 1.5em;
+    background-color: #ffffff; /* Fond blanc pour le contraste */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Bouton Publier aligné à droite */
+form button {
+    display: block;
+    margin-left: auto; /* Pousse le bouton à droite */
+    background-color: #8D1C31;
+    color: #fff;
+    border: none;
+    padding: 0.8em 1.5em;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+form button:hover {
+    background-color: #6f1425;
+    transform: translateY(-2px); /* Léger soulèvement au survol */
+}
+
+/* Messages dans le formulaire */
+form p {
+    margin-bottom: 1em;
+    font-size: 1em;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Style des labels */
+form label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-size: 1.2em;
+    color: #34495E; /* Couleur harmonieuse avec le design */
+    font-weight: bold;
+}
+
+/* Style du textarea */
+form textarea {
+    width: 100%; /* Prend toute la largeur du formulaire */
+    padding: 0.8em;
+    font-size: 1em;
+    border: 1px solid #ddd; /* Bordure discrète */
+    border-radius: 8px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Effet légèrement enfoncé */
+    resize: vertical; /* Autorise uniquement la redimension verticale */
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form textarea:focus {
+    border-color: #8D1C31; /* Change de couleur au focus */
+    box-shadow: 0 0 8px rgba(141, 28, 49, 0.4); /* Effet lumineux */
+    outline: none;
+}
+
+p {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+p a {
+    color: #8D1C31;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+p a:hover {
+    text-decoration: underline;
+}

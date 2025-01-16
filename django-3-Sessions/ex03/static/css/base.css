@@ -1,0 +1,77 @@
+/* Styles de base pour tous les exercices */
+
+html, body {
+    height: 100%; /* S'assure que le body occupe toute la hauteur de la fenêtre */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    color: #333;
+    display: flex;
+    flex-direction: column; /* Permet de gérer la disposition avec un footer fixé */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav {
+    background-color: #8D1C31;
+    color: #fff;
+    padding: 1em 0;
+}
+
+nav a {
+    color: #fff; /* Couleur blanche pour contraster avec le fond */
+    text-decoration: none;
+    margin-right: 15px; /* Ajoute de l'espacement entre les liens */
+}
+
+nav a:hover {
+    text-decoration: underline; /* Ajoute un effet au survol */
+}
+
+nav .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+}
+
+nav p {
+    float: right;
+    margin: 0;
+}
+
+main {
+    flex: 1; /* Prend tout l'espace disponible entre le header et le footer */
+}
+
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #34495E;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%; /* Assure que le footer couvre toute la largeur */
+}
+
+h1 {
+    color: #8D1C31;
+}
+
+a {
+    color: #8D1C31;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block nav %}
+    <p>Hello {{ username }} !</p>
+{% endblock %}
+
+{% block content %}
+    <h1>Bienvenue sur Life Pro Tips</h1>
+    <p>Partagez et découvrez des astuces pour la vie quotidienne !</p>
+{% endblock %}
+/* Styles de base pour tous les exercices */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav {
+    background-color: #8D1C31;
+    color: #fff;
+    padding: 1em 0;
+}
+
+nav .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+}
+
+nav p {
+    float: right;
+    margin: 0;
+}
+
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #34495E;
+    color: #fff;
+}
+
+h1 {
+    color: #8D1C31;
+}
+
+a {
+    color: #8D1C31;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

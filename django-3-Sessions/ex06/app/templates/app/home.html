@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Nos Tips{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="tips-container">
+    {% if user.is_authenticated %}
+        <div class="add-tip">
+            <h3>Ajouter une astuce</h3>
+            <form method="post" class="add-tip-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="publish-btn">Publier</button>
+            </form>
+        </div>
+    {% else %}
+        <p class="auth-message">Connectez-vous pour partager vos astuces !</p>
+    {% endif %}
+
+    <h2>Les astuces</h2>
+    <ul class="tips-list">
+        {% for tip in tips %}
+            <li class="tip-item">
+                <div class="tip-header">
+                    <p><strong>{{ tip.auteur.username }} ({{ tip.auteur.reputation }})</strong> - {{ tip.date|date:"d/m/Y H:i" }}</p>
+                </div>
+                <div class="tip-content">
+                    <p>{{ tip.contenu }}</p>
+                </div>
+                <div class="tip-actions">
+                    <p class="vote-count">
+                        👍 {{ tip.total_upvotes }} | 👎 {{ tip.total_downvotes }}
+                    </p>
+                    {% if user.is_authenticated %}
+                        <div class="vote-buttons">
+                            <form method="post" action="{% url 'upvote_tip' tip.id %}" class="vote-form">
+                                {% csrf_token %}
+                                <button type="submit" class="upvote-btn">👍 Upvote</button>
+                            </form>
+                            {% if can_downvote or user == tip.auteur %}
+                                <form method="post" action="{% url 'downvote_tip' tip.id %}" class="vote-form">
+                                    {% csrf_token %}
+                                    <button type="submit" class="downvote-btn">👎 Downvote</button>
+                                </form>
+                            {% endif %}
+                        </div>
+                        {% if can_delete_tip or user == tip.auteur %}
+                            <form method="post" action="{% url 'delete_tip' tip.id %}" class="delete-form">
+                                {% csrf_token %}
+                                <button type="submit" class="delete-btn">🗑 Supprimer</button>
+                            </form>
+                        {% endif %}
+                    {% else %}
+                        <p class="auth-message">Connectez-vous pour voter ou supprimer des astuces.</p>
+                    {% endif %}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
