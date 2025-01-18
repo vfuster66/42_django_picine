@@ -1,0 +1,16 @@
+{% extends 'articles/base.html' %}
+{% block title %}{{ article.title }}{% endblock %}
+{% block content %}
+<h3>{{ article.title }}</h3>
+<p><strong>Author:</strong> {{ article.author }}</p>
+<p><strong>Created:</strong> {{ article.created|date:"Y-m-d H:i:s" }}</p>
+<p><strong>Synopsis:</strong> {{ article.synopsis }}</p>
+<p><strong>Content:</strong></p>
+<p>{{ article.content }}</p>
+{% if user.is_authenticated %}
+    <form method="post" action="{% url 'add_favourite' article.pk %}">
+        {% csrf_token %}
+        <button type="submit">Add to Favourites</button>
+    </form>
+{% endif %}
+{% endblock %}

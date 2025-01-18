@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Opening Crawl</title>
+</head>
+<body>
+    <h1>Update Opening Crawl</h1>
+    {% if movies %}
+        <form method="post">
+            {% csrf_token %}
+            <label for="movie_id">Select a movie:</label>
+            <select name="movie_id" id="movie_id" required>
+                {% for movie in movies %}
+                    <option value="{{ movie.episode_nb }}">{{ movie.title }}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <label for="new_text">New Opening Crawl:</label>
+            <textarea name="new_text" id="new_text" rows="5" cols="50" required></textarea>
+            <br><br>
+            <button type="submit">Update</button>
+        </form>
+    {% else %}
+        <p>No data available</p>
+    {% endif %}
+</body>
+</html>

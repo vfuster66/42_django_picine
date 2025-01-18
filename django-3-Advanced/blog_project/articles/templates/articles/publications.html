@@ -1,0 +1,29 @@
+{% extends 'articles/base.html' %}
+
+{% block title %}My Publications{% endblock %}
+
+{% block content %}
+<h3>My Publications</h3>
+<a href="{% url 'publish' %}">Publish New Article</a>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Synopsis</th>
+            <th>Created</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for article in articles %}
+        <tr>
+            <td>{{ article.title }}</td>
+            <td>{{ article.synopsis }}</td>
+            <td>{{ article.created|date:"Y-m-d H:i:s" }}</td>
+            <td><a href="{% url 'article_detail' article.pk %}">View Detail</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

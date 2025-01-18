@@ -1,0 +1,11 @@
+{% extends 'articles/base.html' %}
+
+{% block title %}Add to Favourites{% endblock %}
+
+{% block content %}
+<h3>Add to Favourites</h3>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirm Add to Favourites</button>
+</form>
+{% endblock %}

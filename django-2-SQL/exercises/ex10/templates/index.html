@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ex10 - Search</title>
+</head>
+<body>
+    <h1>Search for Characters</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="min_date">Movies minimum release date:</label>
+        <input type="date" name="min_date" required><br>
+
+        <label for="max_date">Movies maximum release date:</label>
+        <input type="date" name="max_date" required><br>
+
+        <label for="min_diameter">Planet diameter greater than:</label>
+        <input type="number" name="min_diameter" required><br>
+
+        <label for="gender">Character gender:</label>
+        <select name="gender" required>
+            {% for gender in genders %}
+                <option value="{{ gender }}">{{ gender }}</option>
+            {% endfor %}
+        </select><br>
+
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>

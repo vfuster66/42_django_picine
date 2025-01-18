@@ -1,0 +1,61 @@
+{% load i18n %}
+<nav class="navbar navbar-expand-lg pt-0 pb-0" style="background-color: #222222; height: 60px;">
+    <div class="container-fluid">
+        <div class="d-flex align-items-center me-3">
+            <i class="fa-solid fa-book" style="font-size: 1.6rem; color: grey;"></i>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-0 mb-lg-0">
+                <li class="nav-item h-100">
+                    <a class="nav-link d-flex align-items-center h-110 px-3 {% if request.resolver_match.url_name == 'article_list' %}bg-black text-white{% else %}text-gray-400{% endif %}" href="{% url 'article_list' %}" style="color: gray; height: 60px;">
+                        {% if request.resolver_match.url_name == 'article_list' %}
+                            {% trans "Articles" %}
+                        {% else %}
+                            Articles
+                        {% endif %}
+                    </a>
+                </li>
+                <li class="nav-item h-100">
+                    <a class="nav-link d-flex align-items-center h-110 px-3 {% if request.resolver_match.url_name == 'favourites' %}bg-black text-white{% else %}text-gray-400{% endif %}" href="{% url 'favourites' %}" style="color: gray; height: 60px;">
+                        {% if request.resolver_match.url_name == 'article_list' %}
+                            {% trans "Favourites" %}
+                        {% else %}
+                            Favourites
+                        {% endif %}
+                    </a>
+                </li>
+                <li class="nav-item h-100">
+                    <a class="nav-link d-flex align-items-center h-110 px-3 {% if request.resolver_match.url_name == 'publications' %}bg-black text-white{% else %}text-gray-400{% endif %}" href="{% url 'publications' %}" style="color: gray; height: 60px;">
+                        {% if request.resolver_match.url_name == 'article_list' %}
+                            {% trans "Publications" %}
+                        {% else %}
+                            Publications
+                        {% endif %}
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item">
+                    <span class="navbar-text me-3 text-gray-400" style="color: gray;">
+                        {% if request.resolver_match.url_name == 'article_list' %}
+                            {% trans "Logged as" %}
+                        {% else %}
+                            Logged as
+                        {% endif %}
+                        {{ user.username }}
+                    </span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-gray-400" href="{% url 'logout' %}" style="color: gray;">
+                        {% if request.resolver_match.url_name == 'article_list' %}
+                            {% trans "Logout" %}
+                        {% else %}
+                            Logout
+                        {% endif %}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

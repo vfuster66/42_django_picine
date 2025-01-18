@@ -1,0 +1,16 @@
+{% extends 'articles/base.html' %}
+
+{% block title %}My Favourites{% endblock %}
+
+{% block content %}
+<h3>My Favourite Articles</h3>
+<ul>
+    {% for favourite in favourites %}
+    <li>
+        <a href="{% url 'article_detail' favourite.article.pk %}">
+            {{ favourite.article.title }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

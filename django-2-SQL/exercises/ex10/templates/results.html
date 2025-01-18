@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ex10 - Results</title>
+</head>
+<body>
+    <h1>Results</h1>
+    <table border="1">
+        <tr>
+            <th>Film</th>
+            <th>Character</th>
+            <th>Gender</th>
+            <th>Homeworld</th>
+            <th>Diameter</th>
+        </tr>
+        {% for person in results %}
+            {% for movie in person.movies.all %}
+                <tr>
+                    <td>{{ movie.title }}</td>
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.gender }}</td>
+                    <td>{{ person.homeworld.name }}</td>
+                    <td>{{ person.homeworld.diameter }}</td>
+                </tr>
+            {% endfor %}
+        {% endfor %}
+    </table>
+</body>
+</html>
