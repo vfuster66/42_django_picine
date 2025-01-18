@@ -1,4 +1,4 @@
-# Piscine Django - SQL
+# Module 6 : SQL - Piscine Django
 
 ## Prérequis
 

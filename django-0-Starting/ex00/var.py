@@ -21,5 +21,6 @@ def my_var():
     print(f"{tuple_var} est de type {type(tuple_var)}")
     print(f"{set_var} est de type {type(set_var)}")
 
+
 if __name__ == "__main__":
     my_var()

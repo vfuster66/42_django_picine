@@ -1,4 +1,4 @@
-# Django Chat Application
+# Module 9 : Chat - Django piscine
 
 ## Description
 Un système de chat en temps réel développé avec Django, utilisant AJAX et WebSockets pour la communication.

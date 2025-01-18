@@ -1,5 +1,6 @@
 import sys
 
+
 def get_capital_city(state):
     # Dictionnaires fournis
     states = {
@@ -21,6 +22,7 @@ def get_capital_city(state):
     if state_code:
         return capital_cities.get(state_code, "Unknown state")
     return "Unknown state"
+
 
 if __name__ == "__main__":
     # Vérifier les arguments

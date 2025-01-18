@@ -2,12 +2,13 @@
 from django.contrib import admin
 from .models import Article, UserFavouriteArticle
 
+
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'created', 'synopsis')  # Champs affichés dans la liste
-    list_filter = ('author', 'created')  # Filtres sur le côté
-    search_fields = ('title', 'synopsis', 'content')  # Champs recherchables
-    readonly_fields = ('created',)  # Champs en lecture seule
+    list_display = ('title', 'author', 'created', 'synopsis')
+    list_filter = ('author', 'created')
+    search_fields = ('title', 'synopsis', 'content')
+    readonly_fields = ('created',)
     fieldsets = (
         (None, {
             'fields': ('title', 'author')
@@ -19,6 +20,7 @@ class ArticleAdmin(admin.ModelAdmin):
             'fields': ('created',)
         }),
     )
+
 
 @admin.register(UserFavouriteArticle)
 class UserFavouriteArticleAdmin(admin.ModelAdmin):

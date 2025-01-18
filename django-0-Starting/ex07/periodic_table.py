@@ -1,7 +1,11 @@
 import sys
 
+
 def read_periodic_table(file_path):
-    """Lit le fichier et retourne une liste de dictionnaires représentant les éléments."""
+    """
+    Lit le fichier et retourne une liste de dictionnaires
+    représentant les éléments.
+    """
     elements = []
     try:
         with open(file_path, 'r') as file:
@@ -27,8 +31,11 @@ def read_periodic_table(file_path):
         sys.exit(1)
     return elements
 
+
 def generate_css():
-    """Crée un fichier periodic_table.css avec des styles améliorés et responsifs."""
+    """
+    Crée un fichier periodic_table.css avec des styles améliorés et responsifs.
+    """
     css_content = """
     body {
         font-family: Arial, sans-serif;
@@ -95,26 +102,40 @@ def generate_css():
         css_file.write(css_content)
     print("CSS file generated: periodic_table.css")
 
+
 def generate_html(elements, output_file):
     """Génère un tableau périodique HTML."""
     try:
         with open(output_file, 'w') as file:
-            file.write('<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8">\n<title>Periodic Table</title>\n')
+            file.write('<!DOCTYPE html>\n<html lang="en">\n<head>\n')
+            file.write('<meta charset="UTF-8">\n')
+            file.write('<title>Periodic Table</title>\n')
             file.write('<link rel="stylesheet" href="periodic_table.css">\n')
-            file.write('</head>\n<body>\n<h1>Periodic Table of Elements</h1>\n<table>\n')
+            file.write('</head>\n<body>\n')
+            file.write('<h1>Periodic Table of Elements</h1>\n')
+            file.write('<table>\n')
 
             for period in range(1, 8):  # 7 périodes pour le tableau périodique
                 file.write('<tr>\n')
                 for position in range(18):  # 18 groupes dans le tableau
-                    element = next((e for e in elements if e['position'] == position and e['number'] // 10 == period - 1), None)
+                    element = next(
+                        (e for e in elements
+                            if (e['position'] == position and
+                                e['number'] // 10 == period - 1)),
+                        None
+                    )
                     if element:
                         file.write('<td>\n')
                         file.write(f"<h4>{element['name']}</h4>\n")
                         file.write('<ul>\n')
-                        file.write(f"<li>Atomic Number: {element['number']}</li>\n")
+                        file.write(
+                            f"<li>Atomic Number: {element['number']}</li>\n"
+                        )
                         file.write(f"<li>Symbol: {element['small']}</li>\n")
-                        file.write(f"<li>Atomic Mass: {element['molar']}</li>\n")
-                        file.write(f"<li>Electrons: {element['electron']}</li>\n")
+                        file.write(f"<li>Atomic Mass: "
+                                   f"{element['molar']}</li>\n")
+                        file.write(f"<li>Electrons: "
+                                   f"{element['electron']}</li>\n")
                         file.write('</ul>\n')
                         file.write('</td>\n')
                     else:
@@ -124,8 +145,10 @@ def generate_html(elements, output_file):
             file.write('</table>\n</body>\n</html>\n')
         print(f"HTML file generated: {output_file}")
     except Exception as e:
-        print(f"Erreur lors de la génération du fichier HTML : {e}", file=sys.stderr)
+        print(f"Erreur lors de la génération du fichier HTML : {e}",
+              file=sys.stderr)
         sys.exit(1)
+
 
 def main():
     if len(sys.argv) != 2:
@@ -138,6 +161,7 @@ def main():
     elements = read_periodic_table(input_file)
     generate_css()
     generate_html(elements, output_file)
+
 
 if __name__ == '__main__':
     main()

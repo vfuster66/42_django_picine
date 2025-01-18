@@ -22,6 +22,7 @@ def create_structure():
 
     return states, cities, structure
 
+
 if __name__ == "__main__":
     states, cities, structure = create_structure()
 

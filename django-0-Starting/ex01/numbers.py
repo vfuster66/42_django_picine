@@ -13,6 +13,7 @@ def read_and_print_numbers(file_path):
     except Exception as e:
         print(f"Une erreur s'est produite : {e}")
 
+
 if __name__ == "__main__":
     # Chemin du fichier à lire
     file_path = "numbers.txt"

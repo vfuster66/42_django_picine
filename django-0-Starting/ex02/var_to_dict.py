@@ -35,5 +35,6 @@ def var_to_dict():
     for year, names in result.items():
         print(f"{year} : {names}")
 
+
 if __name__ == "__main__":
     var_to_dict()
